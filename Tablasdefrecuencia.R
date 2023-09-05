@@ -40,7 +40,7 @@ tabla_PL
 
 # 3.- Se contruye la tabla de frecuencias completas redondeando 
 #las frecuencias absolutas a 3 decimales
-transform(tabla_PL,
+tabla_no_agrupada<-transform(tabla_PL,
           freqAc=cumsum(Freq),
           Rel= round(prop.table(Freq),3),
           RelAc=round(cumsum(prop.table(Freq)),3))
@@ -48,7 +48,7 @@ transform(tabla_PL,
 # 4.- Agruparemos las variables en 8 clases y se 
 #   calcula la frecuencia absoluta
 
-tabla_clases<-as.data.frame(table (Petal.length = factor
+tabla_agrupada<-clases<-as.data.frame(table (Petal.length = factor
                                    (cut(iris$Petal.Length,
                                         breaks = 8))))
 
@@ -57,7 +57,7 @@ tabla_clases
 
 # 6.- Contrucción de la tabla de frecuencias completa redondeando las frecuencias 
 #     relativas a 3 decimales
-tabla<-transform(tabla_clases,
+tabla-no-agrupada<-transform(tabla_clases,
                  freqAc=cumsum(Freq),
                  Rel= round(prop.table(Freq),3),
                  RelAc=round(cumsum(prop.table(Freq)),3))
@@ -74,3 +74,5 @@ library(knitr)
 
 # 7.3.- Se visualiza la tabla
 kable(tabla)
+kable(tabla_agrupada)
+kable(tabla_no_agrupada)
